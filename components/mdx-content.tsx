@@ -16,7 +16,7 @@ export default async function MDXContent({ source }: MDXRemoteProps) {
       block: "plaintext",
       inline: "plaintext",
     },
-    theme: "github-light",
+    theme: "github-dark",
   };
   return (
     <MDXRemote

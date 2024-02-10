@@ -7,6 +7,9 @@ type Post = {
   title: string;
   excerpt: string;
   slug: string;
+  cover: string;
+  date: string;
+  time: string;
   author: {
     name: string;
   };

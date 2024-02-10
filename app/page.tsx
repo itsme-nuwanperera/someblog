@@ -11,7 +11,7 @@ export default async function Page() {
 
   return (
     <div className="flex flex-col mt-16">
-      <div className="mt-12 flex flex-col space-y-8">
+      <div className="mt-6 flex flex-col space-y-8">
         <BlogCard/>
       </div>
     </div>

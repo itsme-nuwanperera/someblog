@@ -10,6 +10,9 @@ import { getPostBySlug, getPosts } from "@/lib/api";
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+
+import autherImage from "@/public/a.png";
 
 interface PageProps {
   params: {
@@ -29,14 +32,30 @@ export default async function Page({ params }: PageProps) {
           Back to blog
         </span>
       </Link>
-      <div className="p-4 border border-zinc-700 rounded-2xl">
-        <h1 className="text-4xl text-zinc-50 font-semibold">{post.title}</h1>
-        <p className="text-xs text-zinc-200 mt-2">
-          Written by {post.author.name}
-        </p>
-        <article className="max-w-none prose prose-invert prose-sm mt-10 mx-auto">
-          <MDXContent source={post.content} />
-        </article>
+      <div className="relative border border-zinc-800 rounded-2xl">
+        <Image
+          src={post.cover}
+          width={900}
+          height={300}
+          alt="Cover image"
+          className="rounded-t-2xl"
+        />
+        <Image
+          src={autherImage}
+          width={40}
+          height={40}
+          alt={""}
+          className="absolute top-0 right-0 rounded-md m-4 border border-zinc-900"
+        />
+        <div className="p-4">
+          <h1 className="text-4xl text-zinc-50 font-semibold">{post.title}</h1>
+          <p className="text-sm text-zinc-200 mt-4">
+            {post.time} • {post.date}
+          </p>
+          <article className="max-w-none prose prose-invert prose-img:rounded-2xl prose-md mt-6 mx-auto">
+            <MDXContent source={post.content} />
+          </article>
+        </div>
       </div>
     </div>
   );
