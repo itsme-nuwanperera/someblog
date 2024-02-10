@@ -19,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("font-geist antialiased", geist.variable)}>
+      <body className={cn("font-geist antialiased", "bg-zinc-950", geist.variable)}>
         <main className="max-w-3xl px-8 py-6 mx-auto">
-          <p className="text-2xl font-semibold">someblog</p>
+          <p className="text-2xl font-semibold text-zinc-50">someblog</p>
           {children}
         </main>
       </body>
