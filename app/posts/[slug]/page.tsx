@@ -22,20 +22,22 @@ export default async function Page({ params }: PageProps) {
   if (!post) return notFound();
 
   return (
-    <div className="flex flex-col mt-16">
-      <Link href="/">
-        <span className="inline-flex items-center text-xs text-zinc-400">
+    <div className="flex flex-col mt-6 ">
+      <Link className="mt-6 mb-6" href="/">
+        <span className="py-2 px-4 pr-6 rounded-full border border-zinc-800 hover:bg-zinc-800 transition-colors duration-200 inline-flex items-center text-sm text-zinc-200">
           <ArrowLeftIcon className="w-4 h-4 mr-2" />
-          Back to posts
+          Back to blog
         </span>
       </Link>
-      <h1 className="text-4xl font-semibold mt-6">{post.title}</h1>
-      <p className="text-xs text-zinc-400 mt-2">
-        Written by {post.author.name}
-      </p>
-      <article className="max-w-none prose prose-sm mt-10 mx-auto">
-        <MDXContent source={post.content} />
-      </article>
+      <div className="p-4 border border-zinc-700 rounded-2xl">
+        <h1 className="text-4xl text-zinc-50 font-semibold">{post.title}</h1>
+        <p className="text-xs text-zinc-200 mt-2">
+          Written by {post.author.name}
+        </p>
+        <article className="max-w-none prose prose-invert prose-sm mt-10 mx-auto">
+          <MDXContent source={post.content} />
+        </article>
+      </div>
     </div>
   );
 }
